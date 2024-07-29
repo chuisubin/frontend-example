@@ -45,7 +45,8 @@ jobs:
         username: ${{ secrets.GCP_VM_USERNAME }}
         key: ${{ secrets.GCP_VM_SSH_KEY }}
         script: |
-          docker pull frontend-example
+          docker pull ${{ secrets.DOCKER_USERNAME }}/frontend-example:latest
           docker stop frontend-container || true
           docker rm frontend-container || true
-          docker run -d --name frontend-container -p 3000:3000 frontend-example
+          docker run -d --name frontend-container -p 3000:3000 ${{ secrets.DOCKER_USERNAME }}/frontend-example:latest
+
