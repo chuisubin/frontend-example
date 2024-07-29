@@ -31,7 +31,7 @@ jobs:
       run: docker build -t frontend-example .
 
     - name: Push Docker image to Docker Hub
-      run: docker push frontend-example
+      run: docker push chuisubin/frontend-example
 
   deploy:
     needs: build
